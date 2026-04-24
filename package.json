@@ -1,0 +1,61 @@
+{
+  "name": "open-target",
+  "displayName": "Open Target",
+  "description": "Open links, URLs, and file paths from AI agent responses and file-based notes.",
+  "version": "0.0.4",
+  "publisher": "danbi2990",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danbi2990/open-target.git"
+  },
+  "homepage": "https://github.com/danbi2990/open-target#readme",
+  "bugs": {
+    "url": "https://github.com/danbi2990/open-target/issues"
+  },
+  "icon": "resources/icon.png",
+  "galleryBanner": {
+    "color": "#0A1826",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.105.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:open-target.openTargetUnderCursor"
+  ],
+  "main": "./out/src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "open-target.openTargetUnderCursor",
+        "title": "Open Target: Open Under Cursor"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "open-target.openTargetUnderCursor",
+        "key": "ctrl+enter",
+        "mac": "cmd+enter",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p .",
+    "watch": "tsc -w -p .",
+    "test": "npm run compile && tsx --test test/**/*.test.ts",
+    "package": "vsce package",
+    "publish:marketplace": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/node": "^24.6.0",
+    "@types/vscode": "^1.105.0",
+    "@vscode/vsce": "^3.6.2",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.3"
+  }
+}
